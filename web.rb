@@ -12,6 +12,7 @@ end
 get '/auth/spotify/callback' do
   user = RSpotify::User.new(request.env['omniauth.auth'])
 
+  # NOTE: Use your own playlist
   playlist = RSpotify::Playlist.find('h13ronim', '1eLvx2KoXGkwxf06ok0IWb')
 
   playlist.tracks.each do |track|
